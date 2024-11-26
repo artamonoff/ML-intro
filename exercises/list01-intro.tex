@@ -1,0 +1,266 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english, russian]{babel}
+
+\usepackage{amsmath, amsfonts, amsthm, amssymb, amsopn, amscd}
+\usepackage{enumerate}
+\usepackage[mathscr]{eucal}
+
+\usepackage{hyperref}
+\hypersetup{unicode=true,final=true,colorlinks=true}
+
+\theoremstyle{remark}
+%\newtheorem{exercise}{Упражнение}
+\newtheorem{exercise}{}[section]
+\renewcommand{\theexercise}{\textbf{\#\arabic{exercise}}}
+
+\input{data-analysis-defs.tex}
+
+\title{Листок 01. Введение в Python}
+
+\author{Н.В. Артамонов}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Pandas}
+
+\begin{exercise}
+Загрузите датасет \texttt{countries}. Вычислите описательные статистики 
+для каждой переменной.
+\end{exercise}
+
+\begin{exercise}
+Загрузите датасет \texttt{sleep75}.
+\begin{enumerate}
+	\item вычислите размер датасета (число наблюдений \& число переменных)
+	\item Заполните следующую таблицу со значениями переменных
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|} \hline
+			index & sleep & totwrk & age & male\\ \hline\hline
+			0 & & & & \\ \hline
+			5 & & & & \\ \hline
+			100 & & & & \\ \hline
+			700 & & & & \\ \hline
+		\end{tabular}
+	\end{center}
+	\item Вычислите корреляционную матрицу для следующих переменных: sleep, totwrk, age 
+	\item Заполните следующую таблицу
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|} \hline
+			Desc.Stat & sleep & totwrk & age & hrwage\\ \hline\hline
+			max & & & & \\ \hline
+			min & & & & \\ \hline
+			mean & & & & \\ \hline
+			median & & & & \\ \hline
+			st.dev & & & & \\ \hline
+			var & & & & \\ \hline
+			% var (biased) & & & & \\ \hline
+			1st quartile & & & & \\ \hline
+			3rd quartile & & & & \\ \hline
+		\end{tabular}
+	\end{center}
+	Замечание: 1st/3rd квантили -- 25\%/75\% квантили соответственно.
+	\item Сколько наблюдения соответствуют следующим условиям
+	\begin{enumerate}
+		\item sleep>3000
+		\item totwrk<2000
+		\item age>40
+		\item age<30
+	\end{enumerate}
+	\item Сколько наблюдений с условием totwrk=0? 
+	Кто эти люди?
+	\item Есть ли в датасете пропущенные наблюдения?
+	Сколько их?
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Загрузите датасет \texttt{Electricity}.
+\begin{enumerate}
+	\item вычислите размер датасета (число наблюдений \& число переменных)
+	\item заполните следующую таблицу со значениями переменных
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|} \hline
+			index & cost & q & pl & pk & pf \\ \hline\hline
+			1 & & & & & \\ \hline
+			15 & & & &  & \\ \hline
+			48 & & & & & \\ \hline
+			87 & & & & & \\ \hline
+		\end{tabular}
+	\end{center}
+	\item Вычислите корреляционную матрицу для следующих переменных: cost, q, pl, pk, pf 
+	\item Заполните следующую таблицу
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|} \hline
+			Desc.Stat & cost & q & pl & pk & pf\\ \hline\hline
+			max & & & & & \\ \hline
+			min & & & & & \\ \hline
+			mean & & & &  & \\ \hline
+			median & & & & & \\ \hline
+			st.dev & & & & & \\ \hline
+			var & & & & & \\ \hline
+			% var (biased) & & & & & \\ \hline
+			1st quartile & & & & & \\ \hline
+			3rd quartile & & & & & \\ \hline
+		\end{tabular}
+	\end{center}
+	Замечание: 1st/3rd квантили -- 25\%/75\% квантили соответственно.
+	\item Сколько наблюдения соответствуют следующим условиям
+		\begin{enumerate}
+			\item cost>40
+			\item q<5000
+			\item q>4000
+			\item 20<cost<50
+		\end{enumerate}
+	\item Есть ли в датасете пропущенные наблюдения?
+	Сколько их?
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Загрузите датасет \texttt{wage2}.
+\begin{enumerate}
+	\item вычислите размер датасета (число наблюдений \& число переменных)
+	\item заполните следующую таблицу со значениями переменных
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+			index & wage & hours& IQ & educ & exper & age \\ \hline\hline
+			1 & & & & & & \\ \hline
+			25 & & & &  & & \\ \hline
+			179 & & & & & & \\ \hline
+			800 & & & & & & \\ \hline
+		\end{tabular}
+	\end{center}
+	\item Вычислите корреляционную матрицу для следующих переменных: wage, hours, IQ, educ, exper 
+	\item Заполните следующую таблицу
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+			Desc.Stat & wage & hours& IQ & educ & exper & wage \\ \hline\hline
+			max & & & & & & \\ \hline
+			min & & & & & & \\ \hline
+			mean & & & & & & \\ \hline
+			median & & & & & & \\ \hline
+			st.dev & & & & & & \\ \hline
+			var & & & & & & \\ \hline
+			% var (biased) & & & & & & \\ \hline
+			1st quartile & & & & & & \\ \hline
+			3rd quartile & & & & & & \\ \hline
+		\end{tabular}
+	\end{center}
+	Замечание: 1st/3rd квантили -- 25\%/75\% квантили соответственно.
+	\item Сколько наблюдения соответствуют следующим условиям
+		\begin{enumerate}
+			\item wage>1000
+			\item age<40
+			\item exper>10
+			\item 100<IQ<130
+		\end{enumerate}
+	\item Есть ли в датасете пропущенные наблюдения?
+	Сколько их?
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Загрузите датасет \texttt{Labour}. Создайте новый датасет, 
+содержащий log-переменные из исходного датасета.
+\end{exercise}
+
+\begin{exercise}
+Загрузите датасет \texttt{Electricity}. Создайте новый датасет, 
+содержащий log-переменные из исходного датасета.
+\end{exercise}
+
+\section{Визуализация}
+
+\begin{exercise}
+Загрузите датасет \texttt{sleep75}.
+\begin{enumerate}
+	\item нарисуйте гистограммы для переменных sleep, totwrk, age, hrwage, educ
+	\item нарисуйте гистограмму с накопление для sleep относительно male 
+	\item нарисуйте гистограмму с накопление для totwrk относительно south 
+	\item нарисуйте гистограмму с накопление для totwrk относительно smsa 
+	\item нарисуйте диаграмму рассеяния sleep vs totwrk
+	\item нарисуйте диаграмму рассеяния sleep vs totwrk с группировкой по male
+	\item нарисуйте диаграмму рассеяния sleep vs age
+	\item нарисуйте диаграмму рассеяния sleep vs age с группировкой по south
+	\item нарисуйте диаграмму рассеяния sleep vs edu
+	\item нарисуйте диаграмму рассеяния sleep vs edu с группировкой по smsa
+	\item визуализируйте корреляционную матриц для следующих переменных: sleep, totwrk, age
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Загрузите датасет \texttt{Labour}.
+\begin{enumerate}
+	\item нарисуйте гистограммы для каждой переменной
+	\item нарисуйте гистограммы для log-переменных output, capital, labour, wage
+	\item нарисуйте диаграммы рассеяния output vs других переменных
+	\item нарисуйте диаграммы рассеяния log(output) vs log других переменных
+	\item визуализируйте корреляционную матриц для всех переменных
+	\item визуализируйте корреляционную матриц для log-переменных
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Загрузите датасет \texttt{Electricity}.
+\begin{enumerate}
+	\item нарисуйте гистограммы для переменных cost, q, pf, pk, pl
+	\item нарисуйте гистограммы для log-переменных cost, q, pf, pk, pl
+	\item нарисуйте диаграммы рассеяния cost vs других переменных
+	\item нарисуйте диаграммы рассеяния log(cost) vs log других переменных
+	\item визуализируйте корреляционную матриц для всех переменных
+	\item визуализируйте корреляционную матриц для log-переменных
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Загрузите датасет \texttt{diamonds}.
+\begin{enumerate}
+	\item нарисуйте гистограммы для переменных price, carat
+	\item нарисуйте гистограммы для log-переменных price, carat
+	\item нарисуйте гистограмму с накопление для price относительно cut
+	\item нарисуйте гистограмму с накопление для carat относительно clarity 
+	\item нарисуйте гистограмму с накопление для log(price) относительно color
+	\item нарисуйте гистограмму с накопление для log(carat) относительно color
+	\item нарисуйте диаграмму рассеяния price vs carat
+	\item нарисуйте диаграмму рассеяния log-price vs log-carat
+	\item нарисуйте диаграмму рассеяния log-price vs log-carat с группировкой по cut
+	\item нарисуйте диаграмму рассеяния log-price vs log-carat с группировкой по color
+	\item нарисуйте диаграмму рассеяния log-price vs log-carat с группировкой по clarity
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Загрузите датасет \texttt{Diamond}.
+\begin{enumerate}
+	\item нарисуйте гистограммы для переменных price, carat
+	\item нарисуйте гистограммы для log-переменных price, carat
+	\item нарисуйте гистограмму для price с группировкой относительно переменной certification
+	\item нарисуйте гистограмму для carat с накопление относительно clarity 
+	\item нарисуйте гистограмму для log(price) с накопление  относительно colour
+	\item нарисуйте гистограмму для log(carat) с накопление относительно colour
+	\item нарисуйте диаграмму рассеяния price vs carat
+	\item нарисуйте диаграмму рассеяния log-price vs log-carat
+	\item нарисуйте диаграмму рассеяния log-price vs log-carat с группировкой по certification
+	\item нарисуйте диаграмму рассеяния log-price vs log-carat с группировкой по colour
+	\item нарисуйте диаграмму рассеяния log-price vs log-carat с группировкой по clarity
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Загрузите датасет \texttt{countries}.
+\begin{enumerate}
+	\item Постройте гистограммы для всех переменных
+	\item Постройте диаграмму рассеяния Население vs ВВП д/н
+	\item Постройте диаграмму рассеяния ИРЧП vs ВВП д/н
+	\item Постройте диаграмму рассеяния Безработица vs ВВП д/н
+\end{enumerate}
+\end{exercise}
+
+\end{document}

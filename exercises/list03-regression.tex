@@ -1,0 +1,802 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english, russian]{babel}
+
+\usepackage{amsmath, amsfonts, amsthm, amssymb, amsopn, amscd}
+\usepackage{enumerate}
+\usepackage[mathscr]{eucal}
+
+\usepackage{hyperref}
+\hypersetup{unicode=true,final=true,colorlinks=true}
+
+\theoremstyle{remark}
+%\newtheorem{exercise}{Упражнение}
+\newtheorem{exercise}{}[section]
+\renewcommand{\theexercise}{\textbf{\#\arabic{exercise}}}
+
+\input{data-analysis-defs.tex}
+
+\title{Листок 03. Задача регрессии}
+
+\author{Н.В. Артамонов}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Линейная регрессия}
+
+\begin{exercise}
+Для набора данных \texttt{sleep75} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{sleep на totwrk, age, south, male}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|}\hline
+			index & totwrk & age & south & male \\ \hline\hline
+			0 & 2160 & 32 & 1 & 0 \\
+			1 & 1720 & 24 & 0 & 1 \\
+			2 & 2390 & 44 & 0 & 1 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{sleep} 
+	\item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{sleep75} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{sleep на totwrk, age, south, male, smsa, yngkid, marr}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|l|l|l|}\hline
+			index & totwrk & age & south & male & smsa & yngkid & marr \\ \hline\hline
+			0 & 2150 & 37 & 0 & 1 & 1 & 0 & 1 \\
+			1 & 1950 & 28 & 1 & 1 & 0 & 1 & 0 \\
+			2 & 2240 & 26 & 0 & 0 & 1 & 0 & 0 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{sleep} 
+	\item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{wage2} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{wage на age, IQ, south, married, urban}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|l|}\hline
+			index & age & IQ & south & married & urban \\ \hline\hline
+			0 & 36 & 105 & 1 & 1 & 1 \\
+			1 & 29 & 123 & 0 & 1 & 0 \\
+			2 & 25 & 112 & 1 & 0 & 1 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{wage} 
+	\item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{wage2} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{log(wage) на age, IQ, south, married, urban}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|l|}\hline
+			index & age & IQ & south & married & urban \\ \hline\hline
+			0 & 36 & 105 & 1 & 1 & 1 \\
+			1 & 29 & 123 & 0 & 1 & 0 \\
+			2 & 25 & 112 & 1 & 0 & 1 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{wage} 
+	\item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{wage1} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{wage на exper, female, married, smsa}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|}\hline
+			index & exper & female & married & smsa \\ \hline\hline
+			0 & 5 & 1 & 1 & 1  \\
+			1 & 26 & 0 & 0 & 1 \\
+			2 & 38 & 1 & 1 & 0 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{wage}
+	\item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{wage1} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{log(wage) на exper, female, married, smsa}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|}\hline
+			index & exper & female & married & smsa \\ \hline\hline
+			0 & 5 & 1 & 1 & 1  \\
+			1 & 26 & 0 & 0 & 1 \\
+			2 & 38 & 1 & 1 & 0 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{wage}
+	\item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{Labour} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{output на capital, labour}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим три фирмы с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l||l|l|}\hline
+			index & capital & labour \\ \hline\hline
+			0 & 2.970 & 85 \\
+			1 & 10.450 & 60  \\
+			2 & 3.850 & 105 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{output}
+	\item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{Labour} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{log(output) на log(capital), log(labour)}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим три фирмы с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|}\hline
+			index & capital & labour \\ \hline\hline
+			0 & 2.970 & 85 \\
+			1 & 10.450 & 60  \\
+			2 & 3.850 & 105 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{output}
+	\item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{Labour} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{output на capital, labour, wage}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим три фирмы с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|}\hline
+			index & capital & labour & wage \\ \hline\hline
+			0 & 2.970 & 85 & 36.98\\
+			1 & 10.450 & 60 & 33.82  \\
+			2 & 3.850 & 105 & 40.23\\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{output}
+	\item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{Labour} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{log(output) на log(capital), log(labour), log(wage)}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим три фирмы с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|}\hline
+			index & capital & labour & wage \\ \hline\hline
+			0 & 2.970 & 85 & 36.98\\
+			1 & 10.450 & 60 & 33.82  \\
+			2 & 3.850 & 105 & 40.23\\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{output} для каждой
+	\item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+\section{k-NN}
+
+\begin{exercise}
+Для набора данных \texttt{sleep75} рассмотрим задачу прогнозирования
+для переменных
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		зависимая/target & объясняющая/предикторы/features \\ \hline
+		sleep & totwrk, age, south, male \\ \hline
+	\end{tabular}
+\end{center}
+\begin{enumerate}
+	\item подгоните на исходном датасете модель k-NN с параметрами
+	\begin{center}
+		\begin{tabular}{|l|l|l|}\hline
+		№ & \(k\) & веса \\ \hline
+		1 & 5 & uniform \\
+		2 & 5 & distance \\
+		3 & 10 & uniform \\
+		4 & 10 & distance \\ \hline
+		\end{tabular}
+	\end{center}
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|}\hline
+			index & totwrk & age & south & male \\ \hline\hline
+			0 & 2160 & 32 & 1 & 0 \\
+			1 & 1720 & 24 & 0 & 1 \\
+			2 & 2390 & 44 & 0 & 1 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{sleep} по каждой модели
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{sleep75} рассмотрим задачу прогнозирования
+для переменных
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		зависимая/target & объясняющая/предикторы/features \\ \hline
+		sleep & totwrk, age, south, male, smsa, yngkid, marr \\ \hline
+	\end{tabular}
+\end{center}
+\begin{enumerate}
+	\item подгоните на исходном датасете модель k-NN с параметрами
+	\begin{center}
+		\begin{tabular}{|l|l|l|}\hline
+		№ & \(k\) & веса \\ \hline
+		1 & 5 & uniform \\
+		2 & 5 & distance \\
+		3 & 10 & uniform \\
+		4 & 10 & distance \\ \hline
+		\end{tabular}
+	\end{center}
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|l|l|l|}\hline
+			index & totwrk & age & south & male & smsa & yngkid & marr \\ \hline\hline
+			0 & 2150 & 37 & 0 & 1 & 1 & 0 & 1 \\
+			1 & 1950 & 28 & 1 & 1 & 0 & 1 & 0 \\
+			2 & 2240 & 26 & 0 & 0 & 1 & 0 & 0 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{sleep} по каждой модели
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{wage2} рассмотрим задачу прогнозирования
+для переменных
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		зависимая/target & объясняющая/предикторы/features \\ \hline
+		wage & age, IQ, south, married, urban \\ \hline
+	\end{tabular}
+\end{center}
+\begin{enumerate}
+	\item подгоните на исходном датасете модель k-NN с параметрами
+	\begin{center}
+		\begin{tabular}{|l|l|l|}\hline
+		№ & \(k\) & веса \\ \hline
+		1 & 5 & uniform \\
+		2 & 5 & distance \\
+		3 & 10 & uniform \\
+		4 & 10 & distance \\ \hline
+		\end{tabular}
+	\end{center}
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|l|}\hline
+			index & age & IQ & south & married & urban \\ \hline\hline
+			0 & 36 & 105 & 1 & 1 & 1 \\
+			1 & 29 & 123 & 0 & 1 & 0 \\
+			2 & 25 & 112 & 1 & 0 & 1 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{wage} по каждой модели
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{wage2} рассмотрим задачу прогнозирования
+для переменных
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		зависимая/target & объясняющая/предикторы/features \\ \hline
+		log(wage) & age, IQ, south, married, urban \\ \hline
+	\end{tabular}
+\end{center}
+\begin{enumerate}
+	\item подгоните на исходном датасете модель k-NN с параметрами
+	\begin{center}
+		\begin{tabular}{|l|l|l|}\hline
+		№ & \(k\) & веса \\ \hline
+		1 & 5 & uniform \\
+		2 & 5 & distance \\
+		3 & 10 & uniform \\
+		4 & 10 & distance \\ \hline
+		\end{tabular}
+	\end{center}
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|l|}\hline
+			index & age & IQ & south & married & urban \\ \hline\hline
+			0 & 36 & 105 & 1 & 1 & 1 \\
+			1 & 29 & 123 & 0 & 1 & 0 \\
+			2 & 25 & 112 & 1 & 0 & 1 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{wage} по каждой модели
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{wage1} рассмотрим задачу прогнозирования
+для переменных
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		зависимая/target & объясняющая/предикторы/features \\ \hline
+		wage & exper, female, married, smsa \\ \hline
+	\end{tabular}
+\end{center}
+\begin{enumerate}
+	\item подгоните на исходном датасете модель k-NN с параметрами
+	\begin{center}
+		\begin{tabular}{|l|l|l|}\hline
+		№ & \(k\) & веса \\ \hline
+		1 & 5 & uniform \\
+		2 & 5 & distance \\
+		3 & 10 & uniform \\
+		4 & 10 & distance \\ \hline
+		\end{tabular}
+	\end{center}
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|}\hline
+			index & exper & female & married & smsa \\ \hline\hline
+			0 & 5 & 1 & 1 & 1  \\
+			1 & 26 & 0 & 0 & 1 \\
+			2 & 38 & 1 & 1 & 0 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{wage} по каждой модели
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{wage1} рассмотрим задачу прогнозирования
+для переменных
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		зависимая/target & объясняющая/предикторы/features \\ \hline
+		log(wage) & exper, female, married, smsa \\ \hline
+	\end{tabular}
+\end{center}
+\begin{enumerate}
+	\item подгоните на исходном датасете модель k-NN с параметрами
+	\begin{center}
+		\begin{tabular}{|l|l|l|}\hline
+		№ & \(k\) & веса \\ \hline
+		1 & 5 & uniform \\
+		2 & 5 & distance \\
+		3 & 10 & uniform \\
+		4 & 10 & distance \\ \hline
+		\end{tabular}
+	\end{center}
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|}\hline
+			index & exper & female & married & smsa \\ \hline\hline
+			0 & 5 & 1 & 1 & 1  \\
+			1 & 26 & 0 & 0 & 1 \\
+			2 & 38 & 1 & 1 & 0 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{wage} по каждой модели
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{Labour} рассмотрим задачу прогнозирования
+для переменных
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		зависимая/target & объясняющая/предикторы/features \\ \hline
+		output & capital, labour \\ \hline
+	\end{tabular}
+\end{center}
+\begin{enumerate}
+	\item подгоните на исходном датасете модель k-NN с параметрами
+	\begin{center}
+		\begin{tabular}{|l|l|l|}\hline
+		№ & \(k\) & веса \\ \hline
+		1 & 5 & uniform \\
+		2 & 5 & distance \\
+		3 & 10 & uniform \\
+		4 & 10 & distance \\ \hline
+		\end{tabular}
+	\end{center}
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l||l|l|}\hline
+			index & capital & labour \\ \hline\hline
+			0 & 2.970 & 85 \\
+			1 & 10.450 & 60  \\
+			2 & 3.850 & 105 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{output} по каждой модели
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{Labour} рассмотрим задачу прогнозирования
+для переменных
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		зависимая/target & объясняющая/предикторы/features \\ \hline
+		log(output) & log(capital), log(labour) \\ \hline
+	\end{tabular}
+\end{center}
+\begin{enumerate}
+	\item подгоните на исходном датасете модель k-NN с параметрами
+	\begin{center}
+		\begin{tabular}{|l|l|l|}\hline
+		№ & \(k\) & веса \\ \hline
+		1 & 5 & uniform \\
+		2 & 5 & distance \\
+		3 & 10 & uniform \\
+		4 & 10 & distance \\ \hline
+		\end{tabular}
+	\end{center}
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l||l|l|}\hline
+			index & capital & labour \\ \hline\hline
+			0 & 2.970 & 85 \\
+			1 & 10.450 & 60  \\
+			2 & 3.850 & 105 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{output} по каждой модели
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{Labour} рассмотрим задачу прогнозирования
+для переменных
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		зависимая/target & объясняющая/предикторы/features \\ \hline
+		output & capital, labour, wage \\ \hline
+	\end{tabular}
+\end{center}
+\begin{enumerate}
+	\item подгоните на исходном датасете модель k-NN с параметрами
+	\begin{center}
+		\begin{tabular}{|l|l|l|}\hline
+		№ & \(k\) & веса \\ \hline
+		1 & 5 & uniform \\
+		2 & 5 & distance \\
+		3 & 10 & uniform \\
+		4 & 10 & distance \\ \hline
+		\end{tabular}
+	\end{center}
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|}\hline
+			index & capital & labour & wage \\ \hline\hline
+			0 & 2.970 & 85 & 36.98\\
+			1 & 10.450 & 60 & 33.82  \\
+			2 & 3.850 & 105 & 40.23\\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{output} по каждой модели
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{Labour} рассмотрим задачу прогнозирования
+для переменных
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		зависимая/target & объясняющая/предикторы/features \\ \hline
+		log(output) & log(capital), log(labour), log(wage) \\ \hline
+	\end{tabular}
+\end{center}
+\begin{enumerate}
+	\item подгоните на исходном датасете модель k-NN с параметрами
+	\begin{center}
+		\begin{tabular}{|l|l|l|}\hline
+		№ & \(k\) & веса \\ \hline
+		1 & 5 & uniform \\
+		2 & 5 & distance \\
+		3 & 10 & uniform \\
+		4 & 10 & distance \\ \hline
+		\end{tabular}
+	\end{center}
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|}\hline
+			index & capital & labour & wage \\ \hline\hline
+			0 & 2.970 & 85 & 36.98\\
+			1 & 10.450 & 60 & 33.82  \\
+			2 & 3.850 & 105 & 40.23\\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{output} по каждой модели
+\end{enumerate}
+\end{exercise}
+
+
+\section{Валидация моделей}
+
+\begin{exercise}
+Набор данных \texttt{sleep75} разбейте на обучающую и тестовую часть
+в соотношении 80:20.
+
+Рассмотрим задачу прогнозирования для переменных
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		зависимая/target & объясняющая/предикторы/features \\ \hline
+		sleep & totwrk, age, south, male \\ \hline
+	\end{tabular}
+\end{center}
+и следующие модели
+\begin{center}
+	\begin{tabular}{|l|l|}\hline
+		№ & Модель \\ \hline
+		1 & линейная регрессия\\
+		2 & k-NN с \(k=5\), веса 'uniform' \\
+		3 & k-NN с \(k=5\), веса 'distance' \\
+		4 & k-NN с \(k=10\), веса 'uniform' \\
+		5 & k-NN с \(k=10\), веса 'distance' \\ \hline
+	\end{tabular}
+\end{center}
+Проведите валидацию моделей относительно метрик \(R^2\), MSE, MAE,
+MAPE. Какая модель предпочтительней?
+\end{exercise}
+
+\begin{exercise}
+Набор данных \texttt{sleep75} разбейте на обучающую и тестовую часть
+в соотношении 80:20.
+
+Рассмотрим задачу прогнозирования для переменных
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		зависимая/target & объясняющая/предикторы/features \\ \hline
+		sleep & totwrk, age, south, male, smsa, yngkid, marr \\ \hline
+	\end{tabular}
+\end{center}
+и следующие модели
+\begin{center}
+	\begin{tabular}{|l|l|}\hline
+		№ & Модель \\ \hline
+		1 & линейная регрессия\\
+		2 & k-NN с \(k=5\), веса 'uniform' \\
+		3 & k-NN с \(k=5\), веса 'distance' \\
+		4 & k-NN с \(k=10\), веса 'uniform' \\
+		5 & k-NN с \(k=10\), веса 'distance' \\ \hline
+	\end{tabular}
+\end{center}
+Проведите валидацию моделей относительно метрик \(R^2\), MSE, MAE,
+MAPE. Какая модель предпочтительней?
+\end{exercise}
+
+\begin{exercise}
+Набор данных \texttt{wage2} разбейте на обучающую и тестовую часть
+в соотношении 80:20.
+
+Рассмотрим задачу прогнозирования для переменных
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		зависимая/target & объясняющая/предикторы/features \\ \hline
+		wage & age, IQ, south, married, urban \\ \hline
+	\end{tabular}
+\end{center}
+и следующие модели
+\begin{center}
+	\begin{tabular}{|l|l|}\hline
+		№ & Модель \\ \hline
+		1 & линейная регрессия\\
+		2 & k-NN с \(k=5\), веса 'uniform' \\
+		3 & k-NN с \(k=5\), веса 'distance' \\
+		4 & k-NN с \(k=10\), веса 'uniform' \\
+		5 & k-NN с \(k=10\), веса 'distance' \\ \hline
+	\end{tabular}
+\end{center}
+Проведите валидацию моделей относительно метрик \(R^2\), MSE, MAE,
+MAPE. Какая модель предпочтительней?
+\end{exercise}
+
+\begin{exercise}
+Набор данных \texttt{wage2} разбейте на обучающую и тестовую часть
+в соотношении 80:20.
+
+Рассмотрим задачу прогнозирования для переменных
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		зависимая/target & объясняющая/предикторы/features \\ \hline
+		log(wage) & age, IQ, south, married, urban \\ \hline
+	\end{tabular}
+\end{center}
+и следующие модели
+\begin{center}
+	\begin{tabular}{|l|l|}\hline
+		№ & Модель \\ \hline
+		1 & линейная регрессия\\
+		2 & k-NN с \(k=5\), веса 'uniform' \\
+		3 & k-NN с \(k=5\), веса 'distance' \\
+		4 & k-NN с \(k=10\), веса 'uniform' \\
+		5 & k-NN с \(k=10\), веса 'distance' \\ \hline
+	\end{tabular}
+\end{center}
+Проведите валидацию моделей относительно метрик \(R^2\), MSE, MAE,
+MAPE. Какая модель предпочтительней?
+\end{exercise}
+
+\begin{exercise}
+Набор данных \texttt{wage1} разбейте на обучающую и тестовую часть
+в соотношении 80:20.
+
+Рассмотрим задачу прогнозирования для переменных
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		зависимая/target & объясняющая/предикторы/features \\ \hline
+		wage & exper, female, married, smsa \\ \hline
+	\end{tabular}
+\end{center}
+и следующие модели
+\begin{center}
+	\begin{tabular}{|l|l|}\hline
+		№ & Модель \\ \hline
+		1 & линейная регрессия\\
+		2 & k-NN с \(k=5\), веса 'uniform' \\
+		3 & k-NN с \(k=5\), веса 'distance' \\
+		4 & k-NN с \(k=10\), веса 'uniform' \\
+		5 & k-NN с \(k=10\), веса 'distance' \\ \hline
+	\end{tabular}
+\end{center}
+Проведите валидацию моделей относительно метрик \(R^2\), MSE, MAE,
+MAPE. Какая модель предпочтительней?
+\end{exercise}
+
+\begin{exercise}
+Набор данных \texttt{wage1} разбейте на обучающую и тестовую часть
+в соотношении 80:20.
+
+Рассмотрим задачу прогнозирования для переменных
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		зависимая/target & объясняющая/предикторы/features \\ \hline
+		log(wage) & exper, female, married, smsa \\ \hline
+	\end{tabular}
+\end{center}
+и следующие модели
+\begin{center}
+	\begin{tabular}{|l|l|}\hline
+		№ & Модель \\ \hline
+		1 & линейная регрессия\\
+		2 & k-NN с \(k=5\), веса 'uniform' \\
+		3 & k-NN с \(k=5\), веса 'distance' \\
+		4 & k-NN с \(k=10\), веса 'uniform' \\
+		5 & k-NN с \(k=10\), веса 'distance' \\ \hline
+	\end{tabular}
+\end{center}
+Проведите валидацию моделей относительно метрик \(R^2\), MSE, MAE,
+MAPE. Какая модель предпочтительней?
+\end{exercise}
+
+\begin{exercise}
+Набор данных \texttt{Labour} разбейте на обучающую и тестовую часть
+в соотношении 80:20.
+
+Рассмотрим задачу прогнозирования для переменных
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		зависимая/target & объясняющая/предикторы/features \\ \hline
+		output & capital, labour, wage \\ \hline
+	\end{tabular}
+\end{center}
+и следующие модели
+\begin{center}
+	\begin{tabular}{|l|l|}\hline
+		№ & Модель \\ \hline
+		1 & линейная регрессия\\
+		2 & k-NN с \(k=5\), веса 'uniform' \\
+		3 & k-NN с \(k=5\), веса 'distance' \\
+		4 & k-NN с \(k=10\), веса 'uniform' \\
+		5 & k-NN с \(k=10\), веса 'distance' \\ \hline
+	\end{tabular}
+\end{center}
+Проведите валидацию моделей относительно метрик \(R^2\), MSE, MAE,
+MAPE. Какая модель предпочтительней?
+\end{exercise}
+
+\begin{exercise}
+Набор данных \texttt{Labour} разбейте на обучающую и тестовую часть
+в соотношении 80:20.
+
+Рассмотрим задачу прогнозирования для переменных
+\begin{center}
+	\begin{tabular}{|c|c|}\hline
+		зависимая/target & объясняющая/предикторы/features \\ \hline
+		log(output) & log(capital), log(labour), log(wage) \\ \hline
+	\end{tabular}
+\end{center}
+и следующие модели
+\begin{center}
+	\begin{tabular}{|l|l|}\hline
+		№ & Модель \\ \hline
+		1 & линейная регрессия\\
+		2 & k-NN с \(k=5\), веса 'uniform' \\
+		3 & k-NN с \(k=5\), веса 'distance' \\
+		4 & k-NN с \(k=10\), веса 'uniform' \\
+		5 & k-NN с \(k=10\), веса 'distance' \\ \hline
+	\end{tabular}
+\end{center}
+Проведите валидацию моделей относительно метрик \(R^2\), MSE, MAE,
+MAPE. Какая модель предпочтительней?
+\end{exercise}
+
+% \section{Валидация моделей и преобразования переменных}
+
+% \begin{exercise}
+
+% \end{exercise}
+
+\end{document}

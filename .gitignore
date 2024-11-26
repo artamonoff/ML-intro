@@ -1,2 +1,14 @@
 .DS_Store
 .ipynb_checkpoints
+
+# LaTeX auxiliary files
+*.aux
+*.toc
+*.gz
+*.out
+*.log
+*.fls
+*.fdb_latexmk
+*.nav
+*.snm
+*.vrb

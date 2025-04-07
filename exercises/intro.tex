@@ -1,34 +1,8 @@
-\documentclass[12pt]{article}
+% !TEX root = exercises-ml.tex
 
-\usepackage[utf8]{inputenc}
-\usepackage[T2A]{fontenc}
-\usepackage[english, russian]{babel}
+\section{Введение в Python}
 
-\usepackage{amsmath, amsfonts, amsthm, amssymb, amsopn, amscd}
-\usepackage{enumerate}
-\usepackage[mathscr]{eucal}
-
-\usepackage{hyperref}
-\hypersetup{unicode=true,final=true,colorlinks=true}
-
-\theoremstyle{remark}
-%\newtheorem{exercise}{Упражнение}
-\newtheorem{exercise}{}[section]
-\renewcommand{\theexercise}{\textbf{\#\arabic{exercise}}}
-
-\input{data-analysis-defs.tex}
-
-\title{Листок 01. Введение в Python}
-
-\author{Н.В. Артамонов}
-
-\begin{document}
-
-\maketitle
-
-\tableofcontents
-
-\section{Pandas}
+\subsection{Pandas}
 
 \begin{exercise}
 Загрузите датасет \texttt{countries}. Вычислите описательные статистики 
@@ -176,7 +150,7 @@
 содержащий log-переменные из исходного датасета.
 \end{exercise}
 
-\section{Визуализация}
+\subsection{Визуализация}
 
 \begin{exercise}
 Загрузите датасет \texttt{sleep75}.
@@ -262,5 +236,3 @@
 	\item Постройте диаграмму рассеяния Безработица vs ВВП д/н
 \end{enumerate}
 \end{exercise}
-
-\end{document}

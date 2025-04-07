@@ -1,0 +1,37 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english, russian]{babel}
+
+\usepackage{amsmath, amsfonts, amsthm, amssymb, amsopn, amscd}
+\usepackage{enumerate}
+\usepackage[mathscr]{eucal}
+
+\usepackage{hyperref}
+\hypersetup{unicode=true,final=true,colorlinks=true}
+
+\theoremstyle{remark}
+%\newtheorem{exercise}{Упражнение}
+\newtheorem{exercise}{}[section]
+\renewcommand{\theexercise}{\textbf{\#\arabic{exercise}}}
+
+\input{data-analysis-defs.tex}
+
+\title{Введение в машинное обучение}
+
+\author{Н.В. Артамонов}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\input{intro.tex}
+
+\input{preprocessing.tex}
+
+\input{clustering.tex}
+
+\end{document}

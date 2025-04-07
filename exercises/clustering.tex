@@ -1,35 +1,14 @@
-\documentclass[12pt]{article}
+% !TEX root = exercises-ml.tex
 
-\usepackage[utf8]{inputenc}
-\usepackage[T2A]{fontenc}
-\usepackage[english, russian]{babel}
+\section{Кластеризация}
 
-\usepackage{amsmath, amsfonts, amsthm, amssymb, amsopn, amscd}
-\usepackage{enumerate}
-\usepackage[mathscr]{eucal}
-
-\usepackage{hyperref}
-\hypersetup{unicode=true,final=true,colorlinks=true}
-
-\theoremstyle{remark}
-%\newtheorem{exercise}{Упражнение}
-\newtheorem{exercise}{}[section]
-\renewcommand{\theexercise}{\textbf{\#\arabic{exercise}}}
-
-\input{data-analysis-defs.tex}
-
-\title{Листок 02. Задача кластеризации}
-
-\author{Н.В. Артамонов}
-
-\begin{document}
-
-\maketitle
-
-% \tableofcontents
-
-\textbf{Замечание} \textit{обязательно проводим предварительную обработку данных:
-удаление пропущенных значений, нормировку, преобразование категориальных признаков}
+\textbf{Важно} \textit{обязательно проводим предварительную обработку данных:
+\begin{itemize}
+	\item удаление пропущенных значений
+	\item нормировка
+	\item преобразование категориальных признаков
+\end{itemize}
+}
 
 \begin{exercise}
 Для набора данных \texttt{countries} проведите разбиение на кластеры следующими
@@ -113,5 +92,3 @@
 \end{enumerate}
 относительно метрик: Silhouette, Calinski-Harabasz, Davies-Bouldin
 \end{exercise}
-
-\end{document}

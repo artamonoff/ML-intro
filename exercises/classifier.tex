@@ -1,0 +1,92 @@
+% !TEX root = exercises-ml.tex
+
+\section{Классификация}
+
+\subsection{k-NN}
+
+\begin{exercise}
+Для набора данных \texttt{sleep75} рассмотрим переменные
+\begin{center}
+	\begin{tabular}{|c|c|} \hline
+		Зависимая/таргетная & объясняющие/признаки \\ \hline
+		male & sleep, totwrk, age, south \\ \hline
+	\end{tabular}
+\end{center}
+Рассмотрим трёх людей с характеристиками
+\begin{center}
+	\begin{tabular}{|l||l|l|l|l|}\hline
+		index & sleep & totwrk & age & south  \\ \hline\hline
+		0 & 2900 & 2160 & 32 & 1  \\
+		1 & 3120 & 1720 & 24 & 0  \\
+		2 & 2850 & 2390 & 44 & 0  \\ \hline
+	\end{tabular}
+\end{center}
+Постройте прогноз для \textbf{male} методом k-NN с параметрами
+\begin{center}
+	\begin{tabular}{|l|l|l|}\hline
+	№ & \(k\) & веса \\ \hline
+	1 & 5 & uniform \\
+	2 & 5 & distance \\
+	3 & 10 & uniform \\
+	4 & 10 & distance \\ \hline
+	\end{tabular}
+\end{center}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{sleep75} рассмотрим переменные
+\begin{center}
+	\begin{tabular}{|c|c|} \hline
+		Зависимая/таргетная & объясняющие/признаки \\ \hline
+		smsa & sleep, totwrk, age, south, male, yngkid, marr \\ \hline
+	\end{tabular}
+\end{center}
+Рассмотрим трёх людей с характеристиками
+\begin{center}
+	\begin{tabular}{|l||l|l|l|l|l|l|l|}\hline
+		index & sleep & totwrk & age & south & male & yngkid & marr \\ \hline\hline
+		0 & 2900 & 2150 & 37 & 0 & 1 &  0 & 1 \\
+		1 & 3120 & 1950 & 28 & 1 & 1 &  1 & 0 \\
+		2 & 2850 & 2240 & 26 & 0 & 0 &  0 & 0 \\ \hline
+	\end{tabular}
+\end{center}
+Постройте прогноз для \textbf{smsa} методом k-NN с параметрами
+\begin{center}
+	\begin{tabular}{|l|l|l|}\hline
+	№ & \(k\) & веса \\ \hline
+	1 & 5 & uniform \\
+	2 & 5 & distance \\
+	3 & 10 & uniform \\
+	4 & 10 & distance \\ \hline
+	\end{tabular}
+\end{center}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{default} рассмотрим переменные
+\begin{center}
+	\begin{tabular}{|c|c|} \hline
+		Зависимая/таргетная & объясняющие/признаки \\ \hline
+		default & age, income, ownrent, selfempl \\ \hline
+	\end{tabular}
+\end{center}
+Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|}\hline
+			index & age & income & ownrent & selfempl  \\ \hline\hline
+			0 & 37 & 2000 & 0 & 1  \\
+			1 & 42.5 & 5250 & 1 & 0  \\
+			2 & 29 & 2916 & 0 & 0  \\ \hline
+		\end{tabular}
+	\end{center}
+Постройте прогноз для \textbf{default} методом k-NN с параметрами
+\begin{center}
+	\begin{tabular}{|l|l|l|}\hline
+	№ & \(k\) & веса \\ \hline
+	1 & 5 & uniform \\
+	2 & 5 & distance \\
+	3 & 10 & uniform \\
+	4 & 10 & distance \\ \hline
+	\end{tabular}
+\end{center}
+\end{exercise}

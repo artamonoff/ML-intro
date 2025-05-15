@@ -334,6 +334,229 @@
 \end{enumerate}
 \end{exercise}
 
+\subsection{Линейная регрессия}
+
+\begin{exercise}
+Для набора данных \texttt{sleep75} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{sleep на totwrk, age, south, male}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|}\hline
+			index & totwrk & age & south & male \\ \hline\hline
+			0 & 2160 & 32 & 1 & 0 \\
+			1 & 1720 & 24 & 0 & 1 \\
+			2 & 2390 & 44 & 0 & 1 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{sleep} 
+	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	% MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{sleep75} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{sleep на totwrk, age, south, male, smsa, yngkid, marr}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|l|l|l|}\hline
+			index & totwrk & age & south & male & smsa & yngkid & marr \\ \hline\hline
+			0 & 2150 & 37 & 0 & 1 & 1 & 0 & 1 \\
+			1 & 1950 & 28 & 1 & 1 & 0 & 1 & 0 \\
+			2 & 2240 & 26 & 0 & 0 & 1 & 0 & 0 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{sleep} 
+	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	% MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{wage2} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{wage на age, IQ, south, married, urban}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|l|}\hline
+			index & age & IQ & south & married & urban \\ \hline\hline
+			0 & 36 & 105 & 1 & 1 & 1 \\
+			1 & 29 & 123 & 0 & 1 & 0 \\
+			2 & 25 & 112 & 1 & 0 & 1 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{wage} 
+	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	% MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{wage2} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{log(wage) на age, IQ, south, married, urban}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|l|}\hline
+			index & age & IQ & south & married & urban \\ \hline\hline
+			0 & 36 & 105 & 1 & 1 & 1 \\
+			1 & 29 & 123 & 0 & 1 & 0 \\
+			2 & 25 & 112 & 1 & 0 & 1 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{wage} 
+	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	% MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{wage1} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{wage на exper, female, married, smsa}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|}\hline
+			index & exper & female & married & smsa \\ \hline\hline
+			0 & 5 & 1 & 1 & 1  \\
+			1 & 26 & 0 & 0 & 1 \\
+			2 & 38 & 1 & 1 & 0 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{wage}
+	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	% MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{wage1} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{log(wage) на exper, female, married, smsa}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|}\hline
+			index & exper & female & married & smsa \\ \hline\hline
+			0 & 5 & 1 & 1 & 1  \\
+			1 & 26 & 0 & 0 & 1 \\
+			2 & 38 & 1 & 1 & 0 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{wage}
+	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	% MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{Labour} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{output на capital, labour}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим три фирмы с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l||l|l|}\hline
+			index & capital & labour \\ \hline\hline
+			0 & 2.970 & 85 \\
+			1 & 10.450 & 60  \\
+			2 & 3.850 & 105 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{output}
+	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	% MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{Labour} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{log(output) на log(capital), log(labour)}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим три фирмы с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|}\hline
+			index & capital & labour \\ \hline\hline
+			0 & 2.970 & 85 \\
+			1 & 10.450 & 60  \\
+			2 & 3.850 & 105 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{output}
+	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	% MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{Labour} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{output на capital, labour, wage}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим три фирмы с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|}\hline
+			index & capital & labour & wage \\ \hline\hline
+			0 & 2.970 & 85 & 36.98\\
+			1 & 10.450 & 60 & 33.82  \\
+			2 & 3.850 & 105 & 40.23\\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{output}
+	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	% MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{Labour} рассмотрим линейную регрессию 
+\begin{center}
+	\textbf{log(output) на log(capital), log(labour), log(wage)}.
+\end{center}
+\begin{enumerate}
+	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Рассмотрим три фирмы с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|}\hline
+			index & capital & labour & wage \\ \hline\hline
+			0 & 2.970 & 85 & 36.98\\
+			1 & 10.450 & 60 & 33.82  \\
+			2 & 3.850 & 105 & 40.23\\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз \textbf{output} для каждой
+	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
+	% MSE, MAE, MAPE, RMSE
+\end{enumerate}
+\end{exercise}
+
+
 \subsection{Валидация моделей}
 
 \begin{exercise}

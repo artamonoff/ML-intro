@@ -4,6 +4,8 @@
 
 \subsection{k-NN}
 
+\textbf{Важной}: \textit{каждой задаче раздела модель нужно обучить на полном датасете}
+
 \begin{exercise}
 Для набора данных \texttt{sleep75} рассмотрим задачу прогнозирования
 для переменных
@@ -336,13 +338,21 @@
 
 \subsection{Линейная регрессия}
 
+\textbf{Важной}: \textit{каждой задаче раздела модель нужно обучить на полном датасете}
+
 \begin{exercise}
 Для набора данных \texttt{sleep75} рассмотрим линейную регрессию 
 \begin{center}
 	\textbf{sleep на totwrk, age, south, male}.
 \end{center}
 \begin{enumerate}
-	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Подгоните модель
+	\begin{itemize}
+		\item без регуляризации
+		\item с регуляризацией Ridge (\(\alpha=1\))
+		\item с регуляризацией LASSO (\(\alpha=1\))
+	\end{itemize}
+	и выведите коэффициенты подогнанной модели
 	\item Рассмотрим трёх людей с характеристиками
 	\begin{center}
 		\begin{tabular}{|l||l|l|l|l|}\hline
@@ -352,7 +362,7 @@
 			2 & 2390 & 44 & 0 & 1 \\ \hline
 		\end{tabular}
 	\end{center}
-	вычислите прогноз \textbf{sleep} 
+	вычислите прогноз \textbf{sleep} по каждому методу подгонки
 	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
 	% MSE, MAE, MAPE, RMSE
 \end{enumerate}
@@ -364,7 +374,13 @@
 	\textbf{sleep на totwrk, age, south, male, smsa, yngkid, marr}.
 \end{center}
 \begin{enumerate}
-	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Подгоните модель
+	\begin{itemize}
+		\item без регуляризации
+		\item с регуляризацией Ridge (\(\alpha=1\))
+		\item с регуляризацией LASSO (\(\alpha=1\))
+	\end{itemize}
+	и выведите коэффициенты подогнанной модели
 	\item Рассмотрим трёх людей с характеристиками
 	\begin{center}
 		\begin{tabular}{|l||l|l|l|l|l|l|l|}\hline
@@ -374,7 +390,7 @@
 			2 & 2240 & 26 & 0 & 0 & 1 & 0 & 0 \\ \hline
 		\end{tabular}
 	\end{center}
-	вычислите прогноз \textbf{sleep} 
+	вычислите прогноз \textbf{sleep} по каждому методу подгонки
 	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
 	% MSE, MAE, MAPE, RMSE
 \end{enumerate}
@@ -386,7 +402,13 @@
 	\textbf{wage на age, IQ, south, married, urban}.
 \end{center}
 \begin{enumerate}
-	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Подгоните модель
+	\begin{itemize}
+		\item без регуляризации
+		\item с регуляризацией Ridge (\(\alpha=1\))
+		\item с регуляризацией LASSO (\(\alpha=1\))
+	\end{itemize}
+	и выведите коэффициенты подогнанной модели
 	\item Рассмотрим трёх людей с характеристиками
 	\begin{center}
 		\begin{tabular}{|l||l|l|l|l|l|}\hline
@@ -396,7 +418,7 @@
 			2 & 25 & 112 & 1 & 0 & 1 \\ \hline
 		\end{tabular}
 	\end{center}
-	вычислите прогноз \textbf{wage} 
+	вычислите прогноз \textbf{wage} по каждому методу подгонки
 	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
 	% MSE, MAE, MAPE, RMSE
 \end{enumerate}
@@ -408,7 +430,13 @@
 	\textbf{log(wage) на age, IQ, south, married, urban}.
 \end{center}
 \begin{enumerate}
-	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Подгоните модель
+	\begin{itemize}
+		\item без регуляризации
+		\item с регуляризацией Ridge (\(\alpha=1\))
+		\item с регуляризацией LASSO (\(\alpha=1\))
+	\end{itemize}
+	и выведите коэффициенты подогнанной модели
 	\item Рассмотрим трёх людей с характеристиками
 	\begin{center}
 		\begin{tabular}{|l||l|l|l|l|l|}\hline
@@ -418,7 +446,7 @@
 			2 & 25 & 112 & 1 & 0 & 1 \\ \hline
 		\end{tabular}
 	\end{center}
-	вычислите прогноз \textbf{wage} 
+	вычислите прогноз \textbf{wage} по каждому методу подгонки
 	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
 	% MSE, MAE, MAPE, RMSE
 \end{enumerate}
@@ -430,7 +458,13 @@
 	\textbf{wage на exper, female, married, smsa}.
 \end{center}
 \begin{enumerate}
-	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Подгоните модель
+	\begin{itemize}
+		\item без регуляризации
+		\item с регуляризацией Ridge (\(\alpha=1\))
+		\item с регуляризацией LASSO (\(\alpha=1\))
+	\end{itemize}
+	и выведите коэффициенты подогнанной модели
 	\item Рассмотрим трёх людей с характеристиками
 	\begin{center}
 		\begin{tabular}{|l||l|l|l|l|}\hline
@@ -440,7 +474,7 @@
 			2 & 38 & 1 & 1 & 0 \\ \hline
 		\end{tabular}
 	\end{center}
-	вычислите прогноз \textbf{wage}
+	вычислите прогноз \textbf{wage} по каждому методу подгонки
 	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
 	% MSE, MAE, MAPE, RMSE
 \end{enumerate}
@@ -452,7 +486,13 @@
 	\textbf{log(wage) на exper, female, married, smsa}.
 \end{center}
 \begin{enumerate}
-	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Подгоните модель
+	\begin{itemize}
+		\item без регуляризации
+		\item с регуляризацией Ridge (\(\alpha=1\))
+		\item с регуляризацией LASSO (\(\alpha=1\))
+	\end{itemize}
+	и выведите коэффициенты подогнанной модели
 	\item Рассмотрим трёх людей с характеристиками
 	\begin{center}
 		\begin{tabular}{|l||l|l|l|l|}\hline
@@ -462,7 +502,7 @@
 			2 & 38 & 1 & 1 & 0 \\ \hline
 		\end{tabular}
 	\end{center}
-	вычислите прогноз \textbf{wage}
+	вычислите прогноз \textbf{wage} по каждому методу подгонки
 	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
 	% MSE, MAE, MAPE, RMSE
 \end{enumerate}
@@ -474,7 +514,13 @@
 	\textbf{output на capital, labour}.
 \end{center}
 \begin{enumerate}
-	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Подгоните модель
+	\begin{itemize}
+		\item без регуляризации
+		\item с регуляризацией Ridge (\(\alpha=1\))
+		\item с регуляризацией LASSO (\(\alpha=1\))
+	\end{itemize}
+	и выведите коэффициенты подогнанной модели
 	\item Рассмотрим три фирмы с характеристиками
 	\begin{center}
 		\begin{tabular}{|l||l||l|l|}\hline
@@ -484,7 +530,7 @@
 			2 & 3.850 & 105 \\ \hline
 		\end{tabular}
 	\end{center}
-	вычислите прогноз \textbf{output}
+	вычислите прогноз \textbf{output} по каждому методу подгонки
 	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
 	% MSE, MAE, MAPE, RMSE
 \end{enumerate}
@@ -496,7 +542,13 @@
 	\textbf{log(output) на log(capital), log(labour)}.
 \end{center}
 \begin{enumerate}
-	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Подгоните модель
+	\begin{itemize}
+		\item без регуляризации
+		\item с регуляризацией Ridge (\(\alpha=1\))
+		\item с регуляризацией LASSO (\(\alpha=1\))
+	\end{itemize}
+	и выведите коэффициенты подогнанной модели
 	\item Рассмотрим три фирмы с характеристиками
 	\begin{center}
 		\begin{tabular}{|l||l|l|}\hline
@@ -506,7 +558,7 @@
 			2 & 3.850 & 105 \\ \hline
 		\end{tabular}
 	\end{center}
-	вычислите прогноз \textbf{output}
+	вычислите прогноз \textbf{output} по каждому методу подгонки
 	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
 	% MSE, MAE, MAPE, RMSE
 \end{enumerate}
@@ -518,7 +570,13 @@
 	\textbf{output на capital, labour, wage}.
 \end{center}
 \begin{enumerate}
-	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Подгоните модель
+	\begin{itemize}
+		\item без регуляризации
+		\item с регуляризацией Ridge (\(\alpha=1\))
+		\item с регуляризацией LASSO (\(\alpha=1\))
+	\end{itemize}
+	и выведите коэффициенты подогнанной модели
 	\item Рассмотрим три фирмы с характеристиками
 	\begin{center}
 		\begin{tabular}{|l||l|l|l|}\hline
@@ -528,7 +586,7 @@
 			2 & 3.850 & 105 & 40.23\\ \hline
 		\end{tabular}
 	\end{center}
-	вычислите прогноз \textbf{output}
+	вычислите прогноз \textbf{output} по каждому методу подгонки
 	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
 	% MSE, MAE, MAPE, RMSE
 \end{enumerate}
@@ -540,7 +598,13 @@
 	\textbf{log(output) на log(capital), log(labour), log(wage)}.
 \end{center}
 \begin{enumerate}
-	\item Подгоните модель и выведите коэффициенты подогнанной модели
+	\item Подгоните модель
+	\begin{itemize}
+		\item без регуляризации
+		\item с регуляризацией Ridge (\(\alpha=1\))
+		\item с регуляризацией LASSO (\(\alpha=1\))
+	\end{itemize}
+	и выведите коэффициенты подогнанной модели
 	\item Рассмотрим три фирмы с характеристиками
 	\begin{center}
 		\begin{tabular}{|l||l|l|l|}\hline
@@ -550,7 +614,7 @@
 			2 & 3.850 & 105 & 40.23\\ \hline
 		\end{tabular}
 	\end{center}
-	вычислите прогноз \textbf{output} для каждой
+	вычислите прогноз \textbf{output} по каждому методу подгонки
 	% \item На обучающей выборке вычислите метрики подгонки: \(R^2\), 
 	% MSE, MAE, MAPE, RMSE
 \end{enumerate}

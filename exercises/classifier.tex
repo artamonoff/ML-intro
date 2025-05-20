@@ -4,6 +4,8 @@
 
 \subsection{k-NN}
 
+\textbf{Важной}: \textit{каждой задаче раздела модель нужно обучить на полном датасете}
+
 \begin{exercise}
 Для набора данных \texttt{sleep75} рассмотрим переменные
 \begin{center}
@@ -91,6 +93,163 @@
 \end{center}
 \end{exercise}
 
+\subsection{Линейные модели}
+
+\textbf{Важной}: каждой задаче раздела модель нужно обучить на полном датасете
+
+\begin{exercise}
+Для набора данных \texttt{sleep75} рассмотрим переменные
+
+\begin{center}
+	\begin{tabular}{|c|c|} \hline
+		Зависимая/таргетная & объясняющие/признаки \\ \hline
+		male & sleep, totwrk, age, south \\ \hline
+	\end{tabular}
+\end{center}
+\begin{enumerate}
+	\item Подгоните логистическую регрессию и выведите коэффициенты подогнанной модели
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|}\hline
+			index & sleep & totwrk & age & south  \\ \hline\hline
+			0 & 2900 & 2160 & 32 & 1  \\
+			1 & 3120 & 1720 & 24 & 0  \\
+			2 & 2850 & 2390 & 44 & 0  \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз для \textbf{male} 
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{sleep75} рассмотрим переменные
+
+\begin{center}
+	\begin{tabular}{|c|c|} \hline
+		Зависимая/таргетная & объясняющие/признаки \\ \hline
+		male & sleep, totwrk, age, south \\ \hline
+	\end{tabular}
+\end{center}
+
+\begin{enumerate}
+	\item Подгоните (линейную) модель SVM и выведите коэффициенты подогнанной модели
+	\item Подгоните (нелинейную) модель SVM c ядром RBF
+	\item Подгоните (нелинейную) модель SVM c полиномиальным ядром степени 3
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|}\hline
+			index & sleep & totwrk & age & south  \\ \hline\hline
+			0 & 2900 & 2160 & 32 & 1  \\
+			1 & 3120 & 1720 & 24 & 0  \\
+			2 & 2850 & 2390 & 44 & 0  \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз для \textbf{male} по каждой модели
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{sleep75} рассмотрим переменные
+\begin{center}
+	\begin{tabular}{|c|c|} \hline
+		Зависимая/таргетная & объясняющие/признаки \\ \hline
+		smsa & sleep, totwrk, age, south, male, yngkid, marr \\ \hline
+	\end{tabular}
+\end{center}
+\begin{enumerate}
+	\item Подгоните логистическую регрессию и выведите коэффициенты подогнанной модели
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|l|l|l|}\hline
+			index & sleep & totwrk & age & south & male & yngkid & marr \\ \hline\hline
+			0 & 2900 & 2150 & 37 & 0 & 1 &  0 & 1 \\
+			1 & 3120 & 1950 & 28 & 1 & 1 &  1 & 0 \\
+			2 & 2850 & 2240 & 26 & 0 & 0 &  0 & 0 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз для \textbf{smsa} 
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{sleep75} рассмотрим переменные
+
+\begin{center}
+	\begin{tabular}{|c|c|} \hline
+		Зависимая/таргетная & объясняющие/признаки \\ \hline
+		smsa & sleep, totwrk, age, south, male, yngkid, marr \\ \hline
+	\end{tabular}
+\end{center}
+
+\begin{enumerate}
+	\item Подгоните (линейную) модель SVM и выведите коэффициенты подогнанной модели
+	\item Подгоните (нелинейную) модель SVM c ядром RBF
+	\item Подгоните (нелинейную) модель SVM c полиномиальным ядром степени 3
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|l|l|l|}\hline
+			index & sleep & totwrk & age & south & male & yngkid & marr \\ \hline\hline
+			0 & 2900 & 2150 & 37 & 0 & 1 &  0 & 1 \\
+			1 & 3120 & 1950 & 28 & 1 & 1 &  1 & 0 \\
+			2 & 2850 & 2240 & 26 & 0 & 0 &  0 & 0 \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз для \textbf{smsa} по каждорй модели
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{default} рассмотрим переменные
+
+\begin{center}
+	\begin{tabular}{|c|c|} \hline
+		Зависимая/таргетная & объясняющие/признаки \\ \hline
+		default & age, income, ownrent, selfempl \\ \hline
+	\end{tabular}
+\end{center}
+
+\begin{enumerate}
+	\item Подгоните логистическую регрессию и выведите коэффициенты подогнанной модели
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|}\hline
+			index & age & income & ownrent & selfempl  \\ \hline\hline
+			0 & 37 & 2000 & 0 & 1  \\
+			1 & 42.5 & 5250 & 1 & 0  \\
+			2 & 29 & 2916 & 0 & 0  \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз для \textbf{default} 
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Для набора данных \texttt{default} рассмотрим переменные
+
+\begin{center}
+	\begin{tabular}{|c|c|} \hline
+		Зависимая/таргетная & объясняющие/признаки \\ \hline
+		default & age, income, ownrent, selfempl \\ \hline
+	\end{tabular}
+\end{center}
+
+\begin{enumerate}
+	\item Подгоните (линейную) модель SVM и выведите коэффициенты подогнанной модели
+	\item Подгоните (нелинейную) модель SVM c ядром RBF
+	\item Подгоните (нелинейную) модель SVM c полиномиальным ядром степени 3
+	\item Рассмотрим трёх людей с характеристиками
+	\begin{center}
+		\begin{tabular}{|l||l|l|l|l|}\hline
+			index & age & income & ownrent & selfempl  \\ \hline\hline
+			0 & 37 & 2000 & 0 & 1  \\
+			1 & 42.5 & 5250 & 1 & 0  \\
+			2 & 29 & 2916 & 0 & 0  \\ \hline
+		\end{tabular}
+	\end{center}
+	вычислите прогноз для \textbf{default} по каждой модели
+\end{enumerate}
+\end{exercise}
+	
 \subsection{Валидация моделей}
 
 \begin{exercise}
@@ -109,11 +268,12 @@
 	\begin{tabular}{|l|l|}\hline
 		№ & Модель \\ \hline
 		1 & Логистическая регрессия\\
-		2 & SVM \\ 
+		2 & SVM (линейная) \\ 
 		3 & k-NN с \(k=5\), веса 'uniform' \\
 		4 & k-NN с \(k=5\), веса 'distance' \\
 		5 & k-NN с \(k=10\), веса 'uniform' \\
-		6 & k-NN с \(k=10\), веса 'distance' \\ \hline
+		6 & k-NN с \(k=10\), веса 'distance' \\ 
+		7 & SVM с ядром RBF \\ \hline
 	\end{tabular}
 \end{center}
 Проведите валидацию моделей относительно метрик Accuracy, ROC. 
@@ -140,7 +300,8 @@
 		3 & k-NN с \(k=5\), веса 'uniform' \\
 		4 & k-NN с \(k=5\), веса 'distance' \\
 		5 & k-NN с \(k=10\), веса 'uniform' \\
-		6 & k-NN с \(k=10\), веса 'distance' \\ \hline
+		6 & k-NN с \(k=10\), веса 'distance' \\ 
+		7 & SVM RBF \\ \hline
 	\end{tabular}
 \end{center}
 Проведите валидацию моделей относительно метрик Accuracy, ROC. Какая модель предпочтительней?
@@ -166,7 +327,8 @@
 		3 & k-NN с \(k=5\), веса 'uniform' \\
 		4 & k-NN с \(k=5\), веса 'distance' \\
 		5 & k-NN с \(k=10\), веса 'uniform' \\
-		6 & k-NN с \(k=10\), веса 'distance' \\ \hline
+		6 & k-NN с \(k=10\), веса 'distance' \\ 
+		7 & SVM с ядром RBF \\ \hline
 	\end{tabular}
 \end{center}
 Проведите валидацию моделей относительно метрик Accuracy, ROC. Какая модель предпочтительней?
